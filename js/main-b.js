@@ -16,24 +16,23 @@
 
 const ul = document.querySelector('ul');
 
-const showImages = (code) => {
-    ul.innerHTML = code;
-};
+
 
 const getFetchData = async (url) => {
     const response = await fetch(url);
     return await response.json();
 };
-const code = getFetchData('images.json').then(data =>{
-    for (let i= 0; i < data.length; ++i)
-    {
+
+getFetchData('images.json').then(data => {
+    for (let i = 0; i < data.length; i++) {
         ul.innerHTML +=
-            `<figure>
-        <a href="img/original/${data[i].mediaUrl}"><img src="img/thumbs/${data[i].mediaThumb}"></a>
-        <figcaption>
-            <h3>Title</h3>
-        </figcaption>
-    </figure>`
+            `<li>
+                <figure>
+                    <a href="img/original/${data[i].mediaUrl}"><img alt="${data[i].mediaTitle}" src="img/thumbs/${data[i].mediaThumb}"></a>
+                    <figcaption>
+                        <h3>${data[i].mediaTitle}</h3>
+                    </figcaption>
+                </figure>
+            </li>`
     }
 });
-showImages(code);
