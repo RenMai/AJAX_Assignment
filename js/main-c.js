@@ -17,3 +17,16 @@
 // Add attributes with setAttribute()
 // Add elements with appendChild
 // When the above HTML is ready append it to the <ul> element
+'use strict'
+const ul = document.querySelector('ul');
+const showImages = (code) => {
+    ul.innerHTML = code;
+};
+const getFetchData = async (url) => {
+    const response = await fetch(url);
+    return await response.json();
+};
+const code = getFetchData('images.json').then(data =>{
+    const image = document.createElement('img');
+    image.innerHTML
+});
