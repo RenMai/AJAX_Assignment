@@ -15,4 +15,4 @@ const getFetchData = async (url) =>
 };;
 
 const code = getFetchData('./images.html');
-showImages(code);
+showImages(code);;;;
