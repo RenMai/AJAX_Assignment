@@ -12,7 +12,7 @@ const getFetchData = async (url) =>
     const result = await response.text();
     ul.innerHTML = result;
     return result;
-};
+};;
 
 const code = getFetchData('./images.html');
 showImages(code);
